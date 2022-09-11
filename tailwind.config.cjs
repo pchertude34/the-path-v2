@@ -6,9 +6,7 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
-      white: colors.white,
-      black: colors.black,
-      gray: colors.gray,
+      ...colors,
       // alias color names incase we need to change them for the whole website
       primary: colors.green,
       secondary: colors.sky,
