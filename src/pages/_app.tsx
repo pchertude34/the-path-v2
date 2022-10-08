@@ -1,11 +1,13 @@
 // src/pages/_app.tsx
-
+import React, { useEffect } from 'react';
+import Script from 'next/script';
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { loggerLink } from '@trpc/client/links/loggerLink';
 import { withTRPC } from '@trpc/next';
 import { SessionProvider } from 'next-auth/react';
 import superjson from 'superjson';
 
+import GoogleMapsProvider from 'hooks/useGoogleMaps';
 import SiteLayout from '@components/SiteLayout';
 
 import type { NextPage } from 'next';
@@ -25,7 +27,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppPropsWith
   const getLayout = Component.getLayout ?? ((page) => <SiteLayout>{page}</SiteLayout>);
 
   return (
-    <SessionProvider session={session}>{getLayout(<Component {...pageProps} />)}</SessionProvider>
+    <SessionProvider session={session}>
+      {/* <Script
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&libraries=places&callback=initMap`}
+        strategy="afterInteractive"
+      ></Script> */}
+      <GoogleMapsProvider>{getLayout(<Component {...pageProps} />)}</GoogleMapsProvider>
+    </SessionProvider>
   );
 }
 
