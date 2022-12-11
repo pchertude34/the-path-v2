@@ -1,8 +1,3 @@
-// export default function PathFormStepper() {
-
-// }
-
-/* This example requires Tailwind CSS v2.0+ */
 import React, { useState, createContext, useContext } from 'react';
 import clsx from 'clsx';
 import { CheckIcon } from '@heroicons/react/20/solid';

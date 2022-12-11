@@ -6,7 +6,7 @@ import PlaceSearch from './PlaceSearch';
 type LocationInputProps = {
   label: string;
   placeholder?: string;
-  onLocationChange: ({ longitude, latitude }: { longitude: number; latitude: number }) => null;
+  onLocationChange: ({ longitude, latitude }: { longitude: number; latitude: number }) => void;
 };
 
 export default function LocationIntput(props: LocationInputProps) {
