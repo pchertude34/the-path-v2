@@ -1,2 +1,3 @@
 import providerSchema from './provider';
-export const schemaTypes = [providerSchema];
+import serviceTypeSchema from './serviceType';
+export const schemaTypes = [providerSchema, serviceTypeSchema];
